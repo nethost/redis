@@ -1,5 +1,4 @@
-FROM nethost/alpine:latest
-
+FROM nethost/alpine:3.6
 MAINTAINER billgo <cocobill@vip.qq.com>
 
 RUN addgroup -S redis && adduser -S -G redis redis
