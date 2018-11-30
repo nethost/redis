@@ -1,41 +1,17 @@
-# redis
-Redis docker image
+# Redis Images
 
-# Redis Docker Images
+## 5.0
 
-Docker + Alpine3.6 + Redis4.0.1
-
-#### Start a redis instance
 ```
-$ docker run --name some-redis -d nethost/redis
+$ docker build -t=nethost/redis:5.0-alpine .
+$ docker push nethost/redis:5.0-alpine
+$ docker pull nethost/redis:5.0-alpine
 ```
 
-#### Start with persistent storage
-```
-$ docker run --name some-redis -d nethost/redis redis-server --appendonly yes
-```
+## 4.0
 
-#### Connect to it from an application
 ```
-$ docker run --name some-app --link some-redis:nethost/redis -d application-that-uses-redis
-```
-
-#### Your own redis.conf
-```
-$ FROM nethost/redis
-$ COPY redis.conf /usr/local/etc/redis/redis.conf
-$ CMD [ "redis-server", "/usr/local/etc/redis/redis.conf" ]
-
-or 
-
-$ docker run -v /myredis/conf/redis.conf:/usr/local/etc/redis/redis.conf --name myredis redis redis-server /usr/local/etc/redis/redis.conf
-```
-
-## 辅助命令
-```
-$ docker ps -l
-$ docker stop $(docker ps -a -q)
-$ docker rm $(docker ps -a -q)
-$ docker rmi $(docker images -q)
-$ docker rmi $(docker images -q -f dangling=true)
+$ docker build -t=nethost/redis:4.0-alpine .
+$ docker push nethost/redis:4.0-alpine
+$ docker pull nethost/redis:4.0-alpine
 ```
